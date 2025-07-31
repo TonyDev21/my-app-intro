@@ -21,7 +21,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const [count, setCount] = useState<number>(0);
   const [cartItems, setCartItems] = useState<ProductCardProps[]>([]);
 
-  // Nueva función para eliminar item por id
+  
   const removeFromCart = (id: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     setCount((prevCount) => Math.max(prevCount - 1, 0));

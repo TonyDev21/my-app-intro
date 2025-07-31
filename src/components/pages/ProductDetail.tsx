@@ -3,11 +3,13 @@ import type { ProductCardProps } from "../../types/product";
 import { useParams } from "react-router-dom";
 import Navbar from "../moleculs/Navbar";
 import Button from "../atomic/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const ProductDetail = () => {
-  
+
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const { id } = useParams();
 
   const context = useContext(CartContext);
@@ -17,9 +19,12 @@ const ProductDetail = () => {
   );
 
   function handleClick() {
+    if (isDisabled) return;
+    
     if (data) {
       context.setCount(context.count + 1);
       context.setCartItems([...context.cartItems, data]);
+      setIsDisabled(true);
     }
   }
 
@@ -34,7 +39,7 @@ const ProductDetail = () => {
       <h1>{data?.title}</h1>
       <img src={data?.image} alt={data?.title} className="max-w-[150px]" />
       <p>{data?.description}</p>
-      <Button label="Agregar al carrito" handleClick={handleClick} />
+      <Button label="Agregar al carrito" handleClick={handleClick} disabled={isDisabled}/>
       <p>Elementos agregados: {context.count}</p>
     </div>
   );
