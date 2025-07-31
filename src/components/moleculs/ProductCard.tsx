@@ -15,7 +15,7 @@ const ProductCard = ({image, title, price, id, category}: ProductCardProps) => {
         </div>
         <div className='w-auto h-1/2 flex items-center'>
           <p className='w-3/5 pl-4 text-gray-500'>{category}</p>
-          <button className='w-2/5 bg-black p-2 rounded-3xl text-white cursor-pointer text-xl md:text-xl lg:px-0 lg:text-base'>+ Add to Cart</button>
+          <button className='w-2/5 bg-black p-2 rounded-3xl text-white cursor-pointer text-xl md:text-xl lg:px-0 lg:text-base'>Ver detalles</button>
         </div>
       </div>
     </Link>
