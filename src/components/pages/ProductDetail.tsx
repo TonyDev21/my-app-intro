@@ -25,8 +25,18 @@ const ProductDetail = () => {
     if (isDisabled) return;
     
     if (data) {
-      context.setCount(context.count + 1);
-      context.setCartItems([...context.cartItems, data]);
+      // 1. Busca si el producto ya existe en el carrito
+      const existingItem = context.cartItems.find(item => item.id === data.id);
+      
+      if (existingItem) {
+        // 2. Si ya existe, incrementa la cantidad
+        context.incrementItem?.(data.id);
+      } else {
+        // 3. Si no existe, lo añade con cantidad 1
+        const productToAdd = { ...data, quantity: 1 };
+        context.setCartItems([...context.cartItems, productToAdd]);
+        context.setCount(context.count + 1);
+      }
       setIsDisabled(true);
     }
   }

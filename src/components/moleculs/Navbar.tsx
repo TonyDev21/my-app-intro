@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link to="/" className="font-bold">E-commerce</Link>
         </div>
         <ul className="flex gap-4">  
-            <li>Products</li>
+            <Link to="/">Products</Link>
             <Link to='/cart' className="flex items-center justify-center relative">
                 <CartItem/>
                 <span className="bg-red-400 text-white rounded-full px-2 absolute -top-4 -right-5">

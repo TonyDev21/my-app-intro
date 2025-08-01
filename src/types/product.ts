@@ -5,4 +5,5 @@ export interface ProductCardProps {
     description: string;
     category?: string;
     id: number;
+    quantity?: number;
 }
