@@ -53,7 +53,7 @@ const CartPage = () => {
         <div className="flex flex-col md:flex-row gap-2 p-4">
           <Link
             to="/"
-            className={`flex-1 py-4 rounded-3xl text-xl cursor-pointer flex justify-center items-center bg-red-300 ${
+            className={`flex-1 py-4 rounded-3xl text-xl cursor-pointer flex justify-center items-center ${
               isEmpty && "bg-black text-white"
             }`}
           >
