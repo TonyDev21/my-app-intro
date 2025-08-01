@@ -8,12 +8,15 @@ import { CartContext } from "../../context/CartContext";
 import { LuShield } from "react-icons/lu";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoReload } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetail = () => {
 
   const [isDisabled, setIsDisabled] = useState(false);
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const context = useContext(CartContext);
 
@@ -38,6 +41,11 @@ const ProductDetail = () => {
         context.setCount(context.count + 1);
       }
       setIsDisabled(true);
+
+      // <-- ¡NUEVO! Lógica de redirección con retraso
+      setTimeout(() => {
+        navigate('/cart'); // Redirecciona a la página del carrito
+      }, 2000);
     }
   }
 
